@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rudrapratap Therokar | AI & DS Student Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Rudrapratap Therokar, B.Tech AI & Data Science student at Zeal College of Engineering and Research, Pune." />
+
+  <!-- Minimal, clean font setup -->
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --border: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --max-width: 1040px;
+      --transition: 200ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #e5edff 0, var(--bg) 40%, #f9fafb 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 245, 247, 0.88);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .nav-logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.9rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.45);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+    }
+
+    .nav-cta:hover {
+      background: #eff4ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.14);
+    }
+
+    .nav-cta span {
+      font-size: 1.05rem;
+    }
+
+    /* Mobile nav button */
+    .nav-menu-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #2563eb, #4b5563);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 33rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .pill-strong {
+      border-color: rgba(37, 99, 235, 0.4);
+      color: var(--accent);
+      background: rgba(219, 234, 254, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(120deg, #2563eb, #1d4ed8);
+      color: #f9fafb;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.35);
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.4);
+      opacity: 0.96;
+    }
+
+    .btn-ghost {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(243, 244, 246, 0.9);
+      border-color: rgba(148, 163, 184, 0.8);
+      color: var(--text);
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 360px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.15), #0b1120);
+      padding: 1.5rem;
+      color: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-bg-orbit {
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0, rgba(248, 250, 252, 0.18), transparent 55%),
+                  radial-gradient(circle at 100% 20%, rgba(59, 130, 246, 0.16), transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: linear-gradient(140deg, #1e293b, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .profile-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .profile-role {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.7rem;
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .profile-tag {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(15, 23, 42, 0.7);
+      white-space: nowrap;
+    }
+
+    .profile-footer {
+      margin-top: 1rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .profile-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+      margin-right: 0.3rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 2.7rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.6rem;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 340px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 2rem;
+    }
+
+    .about-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .about-card + .about-card {
+      margin-top: 0.85rem;
+    }
+
+    .about-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .about-list li {
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-bottom: 0.22rem;
+    }
+
+    .label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      padding: 1rem 1rem 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .skill-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      font-size: 0.78rem;
+      color: #4b5563;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-label {
+      font-size: 0.7rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #6b7280;
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .project-footer {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Achievements */
+    .achievements {
+      background: var(--accent-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(191, 219, 254, 0.8);
+      padding: 1.2rem 1.3rem;
+    }
+
+    .achievements-list {
+      list-style: none;
+      columns: 2;
+      column-gap: 1.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .achievements-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Links */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .link-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      padding: 0.9rem 0.95rem;
+      font-size: 0.86rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .link-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .link-url {
+      font-size: 0.83rem;
+      color: var(--accent);
+      word-break: break-all;
+    }
+
+    /* Resume + Contact */
+    .resume-contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+      gap: 1.8rem;
+      align-items: start;
+    }
+
+    .resume-card,
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      padding: 1.2rem 1.3rem;
+      font-size: 0.88rem;
+    }
+
+    .resume-text {
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .contact-list li {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-form {
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+    }
+
+    .field label {
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      padding: 0.45rem 0.6rem;
+      font-size: 0.85rem;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 38px;
+      background: #f9fafb;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: rgba(37, 99, 235, 0.8);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+      background: #ffffff;
+    }
+
+    .contact-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 1.6rem 0 1.8rem;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #2563eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .about-grid,
+      .project-grid,
+      .skills-grid,
+      .links-grid,
+      .resume-contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .achievements-list {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 56px 0 auto 0;
+        background: rgba(245, 245, 247, 0.98);
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0.8rem 1.3rem 1.1rem;
+        flex-direction: column;
+        gap: 0.8rem;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 160ms ease, opacity 160ms ease;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-menu-btn {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.7rem;
+      }
+
+      .container {
+        padding-inline: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-mark">R</div>
+          <span>Rudrapratap · Portfolio</span>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#links">Links</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-menu-btn" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+          Contact
+          <span>→</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-left">
+              <div class="hero-eyebrow">
+                <span style="font-size: 0.85rem;">●</span>
+                <span>AI & Data Science Student · Zeal COER</span>
+              </div>
+              <h1 class="hero-title">
+                Hi, I’m <span class="hero-highlight">Rudrapratap&nbsp;Therokar</span><br />
+                I build, learn & iterate with data and code.
+              </h1>
+              <p class="hero-subtitle">
+                Second-year B.Tech student in <strong>Artificial Intelligence & Data Science</strong> at
+                <strong>Zeal College of Engineering and Research, Narhe, Pune</strong>.
+                I enjoy turning ideas into projects, analysing data, and exploring how AI can solve real-world problems.
+              </p>
+
+              <div class="hero-meta">
+                <span class="pill pill-strong">AI & Data Science</span>
+                <span class="pill">Python · ML · SQL</span>
+                <span class="pill">Pune, India</span>
+              </div>
+
+              <div class="hero-actions">
+                <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});">
+                  View Projects
+                  <span>↗</span>
+                </button>
+                <a class="btn-ghost" href="#about">
+                  About me
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-right">
+              <div class="profile-card">
+                <div class="profile-bg-orbit"></div>
+                <div class="profile-inner">
+                  <div class="profile-avatar">
+                    <!-- You can replace this with an actual <img> of you -->
+                    <span>RT</span>
+                  </div>
+                  <div class="profile-name">Rudrapratap Therokar</div>
+                  <div class="profile-role">B.Tech · AI & Data Science · SY</div>
+
+                  <div class="profile-meta">
+                    <div class="profile-tag">
+                      <span>🎯</span> Project Oriented
+                    </div>
+                    <div class="profile-tag">
+                      <span>📊</span> Data & ML
+                    </div>
+                    <div class="profile-tag">
+                      <span>🌐</span> Web & Cloud Basics
+                    </div>
+                    <div class="profile-tag">
+                      <span>🔁</span> Always Learning
+                    </div>
+                  </div>
+
+                  <div class="profile-footer">
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                      <span class="profile-status-dot"></span>
+                      <span>Open for projects & collaborations</span>
+                    </div>
+                    <a href="#contact" style="color:#bfdbfe;">Let’s talk →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">About</h2>
+              <p class="section-subtitle">Who I am, what I’m studying, and what I enjoy building.</p>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div>
+              <div class="about-card">
+                <h3 class="about-title">Short introduction</h3>
+                <p class="about-text">
+                  I am a curious and driven engineering student focusing on
+                  <strong>Artificial Intelligence and Data Science</strong>. I love working with Python, exploring
+                  machine learning, and building small but meaningful projects that help me learn by doing.
+                  My goal is to grow into a strong problem-solver who can contribute to real-world AI solutions.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3 class="about-title">Academic details</h3>
+                <ul class="about-list">
+                  <li><span class="label">Name:</span> Rudrapratap Therokar</li>
+                  <li><span class="label">Course:</span> B.Tech in Artificial Intelligence & Data Science</li>
+                  <li><span class="label">College:</span> Zeal College of Engineering and Research</li>
+                  <li><span class="label">Year:</span> Second Year (SY)</li>
+                  <li><span class="label">Location:</span> Narhe, Pune</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div class="about-card">
+                <h3 class="about-title">What I’m currently focusing on</h3>
+                <p class="about-text">
+                  • Strengthening my core in Python, data structures, and algorithms<br />
+                  • Practicing data analysis and visualization with real datasets<br />
+                  • Exploring beginner-level machine learning models and workflows<br />
+                  • Learning how to document projects and share them on GitHub
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3 class="about-title">Contact details</h3>
+                <ul class="about-list">
+                  <li><span class="label">Email:</span> <a href="rudraprataptherokar2006@gmail.com">rudraprataptherokar2006@gmail.com</a></li>
+                  <li><span class="label">GitHub:</span> <a href="https://github.com/your-username" target="_blank">github.com/pixelrudra</a></li>
+                  <li><span class="label">LinkedIn:</span> <a href="https://linkedin.com/in/your-username" target="_blank">linkedin.com/in/rudraprataptherokar</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Skills</h2>
+              <p class="section-subtitle">Technical areas I’m exploring and practicing.</p>
+            </div>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3 class="skill-title">Programming</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C / C++</span>
+                <span class="skill-tag">Java (Basics)</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="skill-title">Data & AI</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Machine Learning (Basics)</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Power BI / Tableau</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Database Concepts</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="skill-title">Web & Cloud · Tools</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML / CSS (Basics)</span>
+                <span class="skill-tag">WordPress / Wix</span>
+                <span class="skill-tag">Cloud Basics (AWS / Azure)</span>
+                <span class="skill-tag">Jupyter Notebook</span>
+                <span class="skill-tag">VS Code</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Google Colab</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Projects</h2>
+              <p class="section-subtitle">
+                A snapshot of what I’ve been building. More projects will be added as I learn and experiment.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-grid">
+            <!-- Project 1 -->
+            <article class="project-card">
+              <span class="project-label">Project 1</span>
+              <h3 class="project-title">DataPulse: Student Performance Analyzer</h3>
+              <p class="project-desc">
+                A data analysis project that explores student marks, attendance, and study hours to find patterns that impact performance. The dashboard shows trends like “which subjects are most difficult” and “how attendance affects scores.”
+              </p>
+              <p class="project-meta">
+                Tech stack: Python · Pandas · Matplotlib · Jupyter Notebook
+              </p>
+              <div class="project-footer">
+                <a class="project-link" href="https://github.com/your-username/project-1" target="_blank">
+                  View on GitHub →
+                </a>
+                <span>Academic / Practice</span>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+              <span class="project-label">Project 02</span>
+              <h3 class="project-title">HealthSense: BMI & Lifestyle Tracker</h3>
+              <p class="project-desc">
+                A simple web + data app where users enter basic details (age, weight, height, activity level) and get their BMI, health category, and lifestyle suggestions. Basic visualizations show how different habits (sleep, steps, water) impact their health score.
+              </p>
+              <p class="project-meta">
+                Tech stack: Python · scikit-learn · NumPy · Pandas
+              </p>
+              <div class="project-footer">
+                <a class="project-link" href="https://github.com/your-username/project-2" target="_blank">
+                  View on GitHub →
+                </a>
+                <span>ML Practice</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Optional hint text -->
+          <p style="font-size:0.8rem;color:var(--muted);margin-top:0.7rem;">
+            Tip: Replace titles, descriptions, and links with your actual projects as you build them.
+          </p>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Certifications & Achievements</h2>
+              <p class="section-subtitle">Courses, certifications, and events that are shaping my journey.</p>
+            </div>
+          </div>
+
+          <div class="achievements">
+            <h3 style="font-size:0.95rem;font-weight:600;">Highlights</h3>
+            <ul class="achievements-list">
+              <li>Completed Python Basics – HackerRank</li>
+              <li>Completed SQL Intermediate – HackerRank</li>
+              <li>Machine Learning Course – Coursera</li>
+              <li>Participation in Hackathons / Competitions</li>
+              <li>Participant / Winner in College Tech Fest (Technical Events)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section id="links">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Important Links</h2>
+              <p class="section-subtitle">
+                Profiles where I learn, practice, and share my work.
+              </p>
+            </div>
+          </div>
+
+          <div class="links-grid">
+            <div class="link-card">
+              <div class="link-label">GitHub</div>
+              <a class="link-url" href="https://github.com/your-username" target="_blank">
+                github.com/pixelrudra
+              </a>
+            </div>
+
+            <div class="link-card">
+              <div class="link-label">LinkedIn</div>
+              <a class="link-url" href="https://linkedin.com/in/your-username" target="_blank">
+                linkedin.com/in/rudraprataptherokar
+              </a>
+            </div>
+
+            <div class="link-card">
+              <div class="link-label">HackerRank</div>
+              <a class="link-url" href="https://hackerrank.com/your-username" target="_blank">
+                hackerrank.com/rudratherokar
+              </a>
+            </div>
+
+            <div class="link-card">
+              <div class="link-label">LeetCode</div>
+              <a class="link-url" href="https://leetcode.com/your-username" target="_blank">
+                leetcode.com/rudratherokar
+              </a>
+            </div>
+
+            <div class="link-card">
+              <div class="link-label">Portfolio / Blog (Optional)</div>
+              <a class="link-url" href="https://yourname.wordpress.com" target="_blank">
+                rudra.wordpress.com
+              </a>
+            </div>
+
+            <div class="link-card">
+              <div class="link-label">Resume Link (Optional)</div>
+              <a class="link-url" href="resume.pdf" target="_blank">
+                Download my resume (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESUME + CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Resume & Contact</h2>
+              <p class="section-subtitle">
+                Reach out for internships, collaborations, or project ideas.
+              </p>
+            </div>
+          </div>
+
+          <div class="resume-contact-grid">
+            <div class="resume-card">
+              <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;">Resume</h3>
+              <p class="resume-text">
+                You can download my latest resume using the button below. It includes my education, skills,
+                projects, and achievements in a structured format.
+              </p>
+              <a href="resume.pdf" target="_blank">
+                <button class="btn-primary" type="button">
+                  Download Resume (PDF) →
+                </button>
+              </a>
+              <p class="contact-hint">
+                Place your <code>resume.pdf</code> file in the same folder as this HTML file for the button to work.
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;">Contact</h3>
+              <p style="color:var(--muted);margin-bottom:0.4rem;">
+                Have a project idea, collaboration, or internship opportunity? I’d be happy to connect.
+              </p>
+              <ul class="contact-list">
+                <li><span class="contact-label">Email:</span> <a href="mailto:your-email@example.com">rudraprataptherokar2006@gmail.com</a></li>
+                <li><span class="contact-label">LinkedIn:</span> <a href="https://linkedin.com/in/your-username" target="_blank">linkedin.com/in/rudraprataptherokar</a></li>
+                <li><span class="contact-label">GitHub:</span> <a href="https://github.com/your-username" target="_blank">github.com/pixelrudra</a></li>
+              </ul>
+
+              <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="3" placeholder="How can we collaborate?"></textarea>
+                </div>
+                <button class="btn-primary" type="submit">
+                  Send message
+                </button>
+                <p class="contact-hint">
+                  Note: This uses <code>mailto:</code>. For a fully functional form, you would connect it to a backend or a form service later.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            © 2025 <strong>Rudrapratap Therokar</strong>. All rights reserved.
+          </div>
+          <div class="footer-right">
+            <div style="display:flex;align-items:center;gap:0.3rem;">
+              <span class="footer-dot"></span>
+              <span>Designed & coded with focus and curiosity.</span>
+            </div>
+            <span>Built using plain HTML & CSS.</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Small JS: mobile nav + smooth scroll for hash links -->
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle?.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // Smooth scroll for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
